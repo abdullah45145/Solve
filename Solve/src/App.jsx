@@ -4,14 +4,18 @@ import Footer from "./ui/Footer";
 import Ellipse from "./ui/Ellipse";
 import Home from "./pages/Home";
 import AboutUs from "./pages/Aboutus";
+import Services from "./pages/Services";
+import Achievement from "./pages/Acheivement";
 
 const App = () => {
   return (
     <>
     {/* <Navbar /> */}
     {/* <Home />
-    <Footer /> */}
     <AboutUs />
+    <Services /> */}
+    <Achievement/>
+    {/* <Footer /> */}
     </>
   );
 };
