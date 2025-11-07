@@ -4,6 +4,7 @@
 @import "tailwindcss";
 body{
   background-color: black;
+  overflow-x: hidden;
 }
 
 

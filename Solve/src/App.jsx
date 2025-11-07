@@ -10,12 +10,12 @@ import Achievement from "./pages/Acheivement";
 const App = () => {
   return (
     <>
-    {/* <Navbar /> */}
-    {/* <Home />
+    <Navbar />
+    <Home />
     <AboutUs />
-    <Services /> */}
+    <Services />
     <Achievement/>
-    {/* <Footer /> */}
+     <Footer />
     </>
   );
 };

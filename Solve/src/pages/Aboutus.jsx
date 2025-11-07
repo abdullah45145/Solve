@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <section className="w-full min-h-screen bg-[#080018] text-white flex flex-col items-center justify-center px-6 py-16 sm:px-10 md:px-16 lg:px-20">
+    <section className="w-full min-h-screen bg-[#050020] text-white flex flex-col items-center justify-center px-6 py-16 sm:px-10 md:px-16 lg:px-20">
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2  items-center">
         {/* Left Section */}
         <div className="flex flex-col items-center lg:items-start justify-center w-full">

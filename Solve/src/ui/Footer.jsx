@@ -3,7 +3,7 @@ import React from "react";
 const Ellipse = () => {
   return (
     <div
-      className="absolute top-6 right-0 w-[250px] h-[250px] rounded-full blur-[170px] -mr-[150px]"
+      className="absolute -top-[40px] right-0 w-[250px] h-[250px] rounded-full blur-[170px] -mr-[150px]"
       style={{
         backgroundColor: "#F4A0FF",
         boxShadow: "0 0 60px 25px #F4A0FF80",
@@ -15,8 +15,8 @@ const Ellipse = () => {
 const Footer = () => {
   return (
     <footer
-      className="relative overflow-hidden w-full min-h-screen flex flex-col justify-between 
-                 bg-gradient-to-b from-[#0b0120] to-[#110033] 
+      className="relative overflow-y-visible  w-full min-h-screen flex flex-col justify-between 
+                 bg-[#050020] 
                  text-gray-300 px-6 sm:px-10 md:px-16 lg:px-20 py-12 md:py-16"
     >
       {/* 🔹 Decorative Glowing Ellipse */}

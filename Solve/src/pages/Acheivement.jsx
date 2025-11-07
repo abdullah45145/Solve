@@ -4,42 +4,39 @@ import bgquotes from "../assets/aafb4966f931241aefbba2f479f8e65a376e0a01.png";
 
 const Achievement = () => {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full bg-[#050020] min-h-screen">
       {/* Title */}
-      <h1 className="text-4xl md:text-4xl ml-2 font-inter font-semibold mb-10 tracking-tight text-white px-4 md:px-12">
+      <h1 className="text-4xl md:text-4xl ml-10 font-inter font-semibold m-15 tracking-tight text-white px-4 md:px-20">
         Testimonial
       </h1>
 
       {/* Main Card */}
       <div
-        className="bg-[#120a32] p-6 md:p-12 mx-6 md:mx-12 rounded-2xl shadow-xl flex flex-col lg:flex-row space-y-10 lg:space-y-0 lg:space-x-10 relative overflow-hidden"
-        style={{
-          boxShadow:
-            "0 10px 60px rgba(123, 63, 228, 0.1), 0 0 10px rgba(123, 63, 228, 0.1)",
-        }}
+        className="bg-[#100B2A] p-6 md:p-12 mx-6 md:mx-30 rounded-2xl shadow-xl flex md:space-x-20 flex-col lg:flex-row space-y-10 lg:space-y-0 lg:space-x-10 relative overflow-hidden"
+        
       >
         {/* Left Side: Background Image Box */}
-        <div className="lg:w-[30%] md:w-[35%] sm:w-[90%] w-full min-h-[220px] rounded-xl overflow-hidden relative">
+        <div className="lg:w-[30%] md:w-[45%] sm:w-[90%] object-cover bg-center min-h-[370px] rounded-xl overflow-hidden relative">
           <img
             src={bg}
             alt="Achievement"
-            className="w-full h-full object-cover bg-center rounded-xl brightness-90 hover:scale-105 transition duration-500"
+            className="w-50% h-full object-cover rounded-xl brightness-90 hover:scale-105 transition duration-500"
           />
         </div>
 
         {/* Right Side: Content */}
-        <div className="lg:w-[70%] md:w-[65%] flex flex-col justify-between relative">
+        <div className="lg:w-[70%] md:w-[65%] flex flex-col ml-10 justify-between relative">
           {/* Decorative Quote Icon */}
-          <span className="absolute top-[-25px] left-0 opacity-10 select-none">
+          <span className="absolute top-[2px] left-0  select-none">
             <img
               src={bgquotes}
               alt="bgquotes"
-              className="w-[34px] h-[34px] rotate-180"
+              className="w-[30px] h-[30px] rotate-180"
             />
           </span>
 
           {/* Text Content */}
-          <p className="text-lg md:text-xl text-white leading-relaxed font-light z-10">
+          <p className="text-lg md:text-xl text-white leading-relaxed font-light z-10 mt-20">
             Using this tool has completely transformed how our team operates. <br />
             We’re more organized, meet our deadlines consistently, and <br />
             collaboration has never been smoother. It's a game-changer!

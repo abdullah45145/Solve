@@ -46,7 +46,7 @@ const AvatarRow = () => {
  */
 const Services = () => {
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center px-6 lg:px-20 py-16 bg-[#0B0120] text-white font-inter">
+    <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center px-6 lg:px-20 py-16 bg-[#050020] text-white font-inter">
       {/* ===== LEFT SIDE ===== */}
       <div>
         <h1 className="text-2xl md:text-3xl font-semibold font-inter mb-2 ml-10 tracking-normal">
