@@ -1,54 +1,112 @@
 import React from "react";
+import { motion } from "framer-motion";
 import bgImage from "../assets/2fe0ed2348e86ac9e188c9367fbd4faf45b2ce2e.jpg";
 import Box from "../ui/Box";
 import ScrollIndicator from "../ui/ScrollIndicator";
+import AboutUs from "./Aboutus";
+import Achievement from "./Acheivement";
+import Services from "./Services";
 
 const Home = () => {
   return (
+    <>
     <section
-      className="relative flex flex-col items-center justify-center min-h-screen bg-cover bg-center text-white overflow-hidden w-full"
+      className="relative flex flex-col items-center justify-center 
+                 min-h-screen bg-cover bg-fixed text-white 
+                 overflow-hidden w-full"
       style={{
         backgroundImage: `url(${bgImage})`,
       }}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      
 
-      {/* Content Wrapper */}
-      <div className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-8 md:px-12 lg:px-20 py-16 sm:py-20 md:py-24 text-center w-full max-w-[1600px] mx-auto">
-        
-        {/* Headings */}
-        <div className="mb-4 sm:mb-4 md:mb-4">
-          <h2 className="text-[14px] sm:text-[16px] md:text-[20px] font-inter tracking-[0.18em] text-gray-300 mb-1">
+      {/* 🔹 Centered Content */}
+      <div
+        className="relative z-10 flex flex-col items-center justify-center
+                   text-center w-full max-w-[1600px] px-6 sm:px-10 md:px-16
+                   py-50 sm:py-58 lg:py-65"
+      >
+        {/* Headings with animation */}
+        <motion.div
+          className="flex flex-col items-center justify-center space-y-4 mb-3"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.2 },
+            },
+          }}
+        >
+          <motion.h2
+            className="text-[14px] sm:text-[16px] md:text-[18px] font-inter tracking-[0.18em] text-gray-300"
+            variants={{
+              hidden: { opacity: 0, y: 10 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
+          >
             Welcome to Solve.
-          </h2>
+          </motion.h2>
 
-          <h3 className="font-inter font-semibold text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] leading-tight mb-1 break-words">
+          <motion.h3
+            className="font-inter font-semibold text-[20px] sm:text-[30px] md:text-[50px] lg:text-[40px] leading-tight"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+            }}
+          >
             Manage Your Task
             <br className="hidden sm:block" />
             Efficiently
-          </h3>
+          </motion.h3>
 
-          <p className="text-[12px] sm:text-[14px] md:text-[14px] lg:text-[20px] text-gray-300 max-w-4xl leading-relaxed mx-auto">
+          <motion.p
+            className="text-[13px] sm:text-[15px] md:text-[17px] lg:text-[16px] text-gray-300 max-w-3xl leading-relaxed"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+            }}
+          >
             Solve Your Project Management Problems
             <br className="hidden sm:block" />
             For Your Satisfaction
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Scroll Indicator */}
-        <div className="my-3 sm:my-2 md:my-2 flex justify-center">
+        <motion.div
+          className="flex justify-center"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+        >
           <ScrollIndicator />
-        </div>
+        </motion.div>
 
         {/* Boxes Section */}
-        <div className="w-full flex justify-center mt-1 sm:mt-4 md:mt-4">
-          <div className="w-full max-w-[1700px]">
+        <motion.div
+          className="w-full flex justify-center mt-5 sm:mt-2 md:mt-2"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.4, duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.div
+            className="w-full max-w-[1700px]"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.6, duration: 1, ease: "easeOut" }}
+          >
             <Box />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
+  <AboutUs />
+  <Services />
+  <Achievement />
+  </>
   );
 };
 
