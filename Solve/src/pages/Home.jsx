@@ -107,7 +107,6 @@ const Home = () => {
   <AboutUs />
   <Services />
   <Achievement />
-  <ChartCard />
   </>
   );
 };

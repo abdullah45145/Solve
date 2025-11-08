@@ -1,21 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, NavLink } from "react-router-dom"; // ✅ Import NavLink
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [showNav, setShowNav] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  // 🧠 Scroll handler for show/hide behavior
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // scrolling down → hide navbar
+        setShowNav(false);
+      } else {
+        // scrolling up → show navbar
+        setShowNav(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const containerVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        delayChildren: 0.2,
-        staggerChildren: 0.12,
-        ease: "easeOut",
-      },
+      transition: { delayChildren: 0.2, staggerChildren: 0.12, ease: "easeOut" },
     },
   };
 
@@ -25,25 +43,26 @@ const Navbar = () => {
   };
 
   const menuItems = [
-    
     { name: "", path: "/" },
     { name: "", path: "/" },
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-    { name: "Achievement", path: "/acheivement" },
+    { name: "Achievement", path: "/achievement" },
     { name: "About Us", path: "/about" },
   ];
 
   return (
     <motion.nav
       initial={{ y: -40, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      animate={{
+        y: showNav ? 0 : -100, // 👈 moves navbar up/down on scroll
+        opacity: showNav ? 1 : 0.5,
+      }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       className="fixed top-10 left-1/2 -translate-x-1/2 z-50 
                  w-[95%] sm:w-[95%] lg:w-[92%] 
                  px-5 py-3 flex justify-between items-center 
-                 rounded-full 
-                 backdrop-blur-md bg-gray-700/30 
+                 rounded-full backdrop-blur-md bg-gray-700/30 
                  text-white transition-all duration-300"
     >
       {/* 🔹 Logo */}
@@ -51,7 +70,6 @@ const Navbar = () => {
         variants={itemVariants}
         initial="hidden"
         animate="visible"
-        transition={{ duration: 0.6, ease: "easeOut" }}
         className="text-xl sm:text-2xl font-black tracking-tight font-paytone ml-6"
       >
         SOLVE<span className="text-white">.</span>
@@ -70,9 +88,7 @@ const Navbar = () => {
               to={item.path}
               className={({ isActive }) =>
                 `font-paytone transition cursor-pointer ${
-                  isActive
-                    ? "text-[#5f00ff]  pb-1"
-                    : "hover:text-blue-400"
+                  isActive ? "text-[#5f00ff] pb-1" : "hover:text-blue-400"
                 }`
               }
               onClick={() => setOpen(false)}
@@ -90,26 +106,26 @@ const Navbar = () => {
         initial="hidden"
         animate="visible"
       >
-        <Link to='/signup'>
-        <motion.button
-          variants={itemVariants}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-10 lg:px-8 py-2 lg:py-3 cursor-pointer font-paytone font-semibold rounded-full bg-gray-800/70 hover:bg-gray-700 transition text-xs sm:text-sm"
-        >
-          Sign Up
-        </motion.button>
-        </Link>
-        <Link to='/login'>
-        <motion.button
-          variants={itemVariants}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-10 lg:px-8 py-2 lg:py-3 font-paytone cursor-pointer font-semibold rounded-full bg-[#5f00ff] hover:opacity-90 transition text-xs sm:text-sm"
+        <Link to="/signup">
+          <motion.button
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-10 lg:px-8 py-2 lg:py-3 cursor-pointer font-paytone font-semibold rounded-full bg-gray-800/70 hover:bg-gray-700 transition text-xs sm:text-sm"
           >
-          Log In
-        </motion.button>
-          </Link>
+            Sign Up
+          </motion.button>
+        </Link>
+        <Link to="/login">
+          <motion.button
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-10 lg:px-8 py-2 lg:py-3 font-paytone cursor-pointer font-semibold rounded-full bg-[#5f00ff] hover:opacity-90 transition text-xs sm:text-sm"
+          >
+            Log In
+          </motion.button>
+        </Link>
       </motion.div>
 
       {/* 🔹 Mobile Menu Toggle */}
@@ -118,15 +134,7 @@ const Navbar = () => {
         className="md:hidden text-white p-2"
         onClick={() => setOpen(!open)}
       >
-        <motion.div
-          key={open ? "close" : "menu"}
-          initial={{ rotate: -90, opacity: 0 }}
-          animate={{ rotate: 0, opacity: 1 }}
-          exit={{ rotate: 90, opacity: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          {open ? <X size={26} /> : <Menu size={26} />}
-        </motion.div>
+        {open ? <X size={26} /> : <Menu size={26} />}
       </motion.button>
 
       {/* 🔹 Mobile Dropdown Menu */}
@@ -143,26 +151,20 @@ const Navbar = () => {
                        space-y-4 md:hidden z-40"
           >
             {menuItems.map((item, i) => (
-              <motion.div
+              <NavLink
                 key={i}
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+                to={item.path}
+                className={({ isActive }) =>
+                  `block text-base font-paytone transition ${
+                    isActive
+                      ? "text-[#5f00ff] font-bold"
+                      : "hover:text-blue-400"
+                  }`
+                }
+                onClick={() => setOpen(false)}
               >
-                <NavLink
-                  to={item.path}
-                  className={({ isActive }) =>
-                    `block text-base font-paytone transition ${
-                      isActive
-                        ? "text-[#5f00ff] font-bold"
-                        : "hover:text-blue-400"
-                    }`
-                  }
-                  onClick={() => setOpen(false)} // closes menu on click
-                >
-                  {item.name}
-                </NavLink>
-              </motion.div>
+                {item.name}
+              </NavLink>
             ))}
 
             <div className="flex flex-col sm:flex-row sm:space-x-3 pt-4">
