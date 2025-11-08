@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { NavLink } from "react-router-dom"; // ✅ Import NavLink
+import { Link, NavLink } from "react-router-dom"; // ✅ Import NavLink
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -90,23 +90,26 @@ const Navbar = () => {
         initial="hidden"
         animate="visible"
       >
+        <Link to='/signup'>
         <motion.button
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="px-10 lg:px-8 py-2 lg:py-3 font-paytone font-semibold rounded-full bg-gray-800/70 hover:bg-gray-700 transition text-xs sm:text-sm"
+          className="px-10 lg:px-8 py-2 lg:py-3 cursor-pointer font-paytone font-semibold rounded-full bg-gray-800/70 hover:bg-gray-700 transition text-xs sm:text-sm"
         >
           Sign Up
         </motion.button>
-
+        </Link>
+        <Link to='/login'>
         <motion.button
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="px-10 lg:px-8 py-2 lg:py-3 font-paytone font-semibold rounded-full bg-[#5f00ff] hover:opacity-90 transition text-xs sm:text-sm"
-        >
+          className="px-10 lg:px-8 py-2 lg:py-3 font-paytone cursor-pointer font-semibold rounded-full bg-[#5f00ff] hover:opacity-90 transition text-xs sm:text-sm"
+          >
           Log In
         </motion.button>
+          </Link>
       </motion.div>
 
       {/* 🔹 Mobile Menu Toggle */}

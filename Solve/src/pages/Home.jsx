@@ -6,6 +6,7 @@ import ScrollIndicator from "../ui/ScrollIndicator";
 import AboutUs from "./Aboutus";
 import Achievement from "./Acheivement";
 import Services from "./Services";
+import ChartCard from "../ui/Chartcard";
 
 const Home = () => {
   return (
@@ -106,6 +107,7 @@ const Home = () => {
   <AboutUs />
   <Services />
   <Achievement />
+  <ChartCard />
   </>
   );
 };
