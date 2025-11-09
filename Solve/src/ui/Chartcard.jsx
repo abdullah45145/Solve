@@ -9,10 +9,10 @@ const ChartCard = () => {
         <div className="flex flex-col items-center space-y-4 justify-end w-1/3 h-full">
           <div>
             <div className="text-[#8740FF] text-xl font-inter font-semibold leading-tight">60%</div>
-            <div className="text-white font-inter text-xl font-[400]">Usability</div>
+            <div className="text-white font-inter text-xl font-normal">Usability</div>
           </div>
 
-          <div className="w-full h-[320px] bg-[#2E264B] rounded-t-2xl flex items-end justify-center">
+          <div className="w-full h-80 bg-[#2E264B] rounded-t-2xl flex items-end justify-center">
             <div className="w-full h-[270px] bg-[#9B5CFF] rounded-t-2xl"></div>
           </div>
         </div>
@@ -22,7 +22,7 @@ const ChartCard = () => {
           <div className="text-[#8740FF] text-xl font-inter mr-10 font-semibold">30%</div>
           <div className="text-white text-xs">&nbsp;</div>
 
-          <div className="w-full h-[240px] bg-[#2B1B54] rounded-t-2xl flex items-end justify-center">
+          <div className="w-full h-60 bg-[#2B1B54] rounded-t-2xl flex items-end justify-center">
             <div className="w-full h-[190px] bg-[#7422FF] rounded-t-2xl"></div>
           </div>
         </div>
