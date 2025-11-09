@@ -20,7 +20,7 @@ const AvatarRow = () => {
   ];
 
   return (
-    <div className="absolute bottom-2 left-8 flex items-center font-inter">
+    <div className="absolute bottom-8 left-8 flex items-center font-inter">
       <div className="flex -space-x-2">
         {avatars.map((avatar, index) => (
           <div
@@ -48,66 +48,77 @@ const Services = () => {
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center px-6 lg:px-20 py-16 bg-[#050020] text-white font-inter">
       {/* ===== LEFT SIDE ===== */}
-      <div>
-        <h1 className="text-2xl md:text-3xl font-semibold font-inter mb-2 ml-10 tracking-normal">
-          Built for endless uses, <br />
-          Across all teams.
-        </h1>
+  <div>
+  <h1 className="text-2xl md:text-3xl font-semibold font-inter mb-4 ml-10 tracking-normal">
+    Built for endless uses, <br />
+    Across all teams.
+  </h1>
 
-        {/* App UI Card */}
-        <div
-          className="relative w-full max-w-sm mx-auto shadow-2xl rounded-2xl p-2 md:p-4"
-          style={{
-            backgroundColor: "rgba(25, 17, 56, 0.7)",
-            padding: "20px",
-            maxWidth: "530px",
-          }}
-        >
-
-            {/* Main Content */}
-              <div
-                className="bg-white rounded-xl shadow-xl overflow-hidden relative"
-                style={{ height: "440px" }}
-              >
-                {/* Title Bar */}
-                <div className="flex items-center space-x-2 p-3 border-b border-gray-100">
-                  <div className="w-4 h-4 rounded-full bg-red-400"></div>
-                  <div className="w-4 h-4 rounded-full bg-yellow-400"></div>
-                  <div className="w-4 h-4 rounded-full bg-blue-400"></div>
-                </div>
-            <div
-              className="relative p-10 flex items-center justify-center"
-              style={{
-                  height: "calc(100% - 130px)",
-                  backgroundColor: "#CDAFFF",
-                margin :"35px",
-                borderRadius :"20px"
-              }}
-            >
-              {/* Star Icon */}
-              <div className="absolute top-4 right-4 bg-white rounded-xl p-3 shadow-md">
-                <svg
-                  className="w-5 h-5 text-yellow-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.05 8.729c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                </svg>
-              </div>
-
-              {/* ✅ Replaced Floating Box with Image */}
-              <img
-                src="https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/b8d00b2e389e3a38f115ea00f7dc3dff3ef4f337/dbc32aa496f21ffa8508a4f6432d1e6c6f76e3b1"
-                alt="App UI"
-                className="w-20 20-40 object-cover rounded-2xl "
-              />
-
-            </div>
-              <AvatarRow />
-          </div>
-        </div>
+  {/* App UI Card */}
+  <div
+    className="relative w-full max-w-sm mx-auto shadow-2xl rounded-2xl md:p-4"
+    style={{
+      backgroundColor: "rgba(25, 17, 56, 0.7)",
+      padding: "20px",
+      maxWidth: "450px",
+    }}
+  >
+    {/* Main Content */}
+    <div
+      className="bg-white rounded-xl shadow-xl overflow-hidden relative"
+      style={{ height: "390px" }}
+    >
+      {/* ✅ Title Bar aligned with inner purple box */}
+      <div
+        className="flex items-center space-x-2 "
+        style={{
+          paddingLeft: "35px", // same as purple box margin
+          paddingRight: "35px",
+          paddingTop: "18px",
+          paddingBottom: "12px",
+        }}
+      >
+        <div className="w-4 h-4 rounded-full bg-red-400"></div>
+        <div className="w-4 h-4 rounded-full bg-yellow-400"></div>
+        <div className="w-4 h-4 rounded-full bg-blue-400"></div>
       </div>
+
+      {/* Inner Section */}
+      <div
+        className="relative flex items-center justify-center"
+        style={{
+          height: "calc(100% - 130px)",
+          backgroundColor: "#CDAFFF",
+          marginLeft: "35px",
+          marginRight: "35px",
+          borderRadius: "20px",
+        }}
+      >
+        {/* Star Icon */}
+        <div className="absolute top-4 right-4 bg-white rounded-xl p-3 ">
+          <svg
+            className="w-5 h-5 text-yellow-500"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.05 8.729c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+          </svg>
+        </div>
+
+        {/* Image */}
+        <img
+          src="https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/b8d00b2e389e3a38f115ea00f7dc3dff3ef4f337/dbc32aa496f21ffa8508a4f6432d1e6c6f76e3b1"
+          alt="App UI"
+          className="w-20 h-20 object-cover rounded-2xl"
+        />
+      </div>
+
+      {/* AvatarRow Component */}
+      <AvatarRow />
+    </div>
+  </div>
+</div>
+
 
       {/* ===== RIGHT SIDE ===== */}
       <div className="flex flex-col justify-center">
@@ -116,16 +127,15 @@ const Services = () => {
           {tabs.map((tab) => (
             <div
               key={tab.label}
-              className={`py-2 px-4 rounded-lg cursor-pointer transition duration-200 text-sm font-medium ${
+              className={`py-3 px-7 rounded-3xl cursor-pointer transition duration-200 text-sm font-inter font-normal ${
                 tab.active
-                  ? "bg-indigo-600 text-white shadow-lg"
-                  : "bg-transparent text-gray-300 border border-gray-700 hover:border-indigo-500"
+                  ? "bg-transparent text-[#5F00FF]  border-[#5F00FF] border shadow-lg"
+                  : " text-gray-300  bg-[#1E1936] hover:bg-indigo-100"
               }`}
               style={
                 tab.active
                   ? {
-                      backgroundImage:
-                        "linear-gradient(to right, #7b3fe4, #5a1ec4)",
+                    
                     }
                   : {}
               }
