@@ -11,6 +11,7 @@ const AvatarRow = () => {
   const avatars = [
     { id: 1, color: "bg-indigo-600" },
     { id: 2, color: "bg-yellow-500" },
+ 
     { id: 3, color: "bg-red-500" },
     { id: 4, color: "bg-purple-700" },
     { id: 5, color: "bg-cyan-500" },
